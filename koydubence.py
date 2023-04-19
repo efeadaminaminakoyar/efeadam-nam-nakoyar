@@ -9,8 +9,8 @@ import queue
 
 os.system("cls")
 
-print("UGC Sniper Premium Edition by noahrepublic#4323, support server: https://discord.gg/hw2ttCnmdz")
-print("https://github.com/noahrepublic/Better-UGC-Sniper")
+print("https://discord.gg/7KywcjbMmu")
+print("Efe ve Arwen baba")
 
 
 limiteds = []
@@ -97,7 +97,7 @@ def getCookie():
                 print("Automatically found ROBLOSECURITY.")
             except:
                 print(
-                    "Could not automatically find ROBLOSECURITY. Please enter it manually.")
+                    "ROBLOSECURITY Otomatik olarak bulunamadi. Lutfen Manuel olarak girin.")
                 exit(0)
 
 
@@ -156,7 +156,7 @@ def buyLimited(info, productId, limited):
 
     while available:
         data["idempotencyKey"] = str(uuid.uuid4())
-        print("Trying to buy " + info["name"])
+        print("Satin Alinmaya Calisiliyor... " + info["name"])
         if proxiesEnabled:
             proxy = getProxy()
             session.proxies = {"http": proxy, "https": proxy}
@@ -167,11 +167,11 @@ def buyLimited(info, productId, limited):
         if response.status_code == 429:
        
             if proxiesEnabled:
-                print("Rate limited, Switching proxy")
+                print("Alma Bani, proxy Degistiriliyor")
                 continue
             else:
-                print("Rate limited")
-            time.sleep(0.25)
+                print("Alma Bani Bekleniyor")
+            time.sleep(10)
  
         if response.status_code == 503:
             print("Out of stock! Or website crashed")
@@ -203,17 +203,17 @@ def buyLimited(info, productId, limited):
         try:
             response = response.json()
         except:
-            print("Failed to buy ")
+            print("Satin Alim Basarisiz ")
             continue
             
 
         if response["purchased"]:
-            print("Bought " + info["name"])
+            print("---SATIN ALINDI--- " + info["name"])
 
 
 
 def checkLimiteds():
-    print("Checking limiteds...")
+    print("Limitedlar Kontrol Ediliyor...")
 
 
     global start
@@ -236,7 +236,7 @@ def checkLimiteds():
                 print("Rate limited, Switching proxy (Might be a bad proxy)")
                 continue
             else:
-                print("Rate limited")
+                print("Alma Bani")
             start += (60-int(datetime.datetime.now().second))
             time.sleep(60-int(datetime.datetime.now().second)) # https://devforum.roblox.com/t/what-are-the-roblox-ratelimits-or-how-can-i-handle-them/1596921/8
           
@@ -294,7 +294,7 @@ if __name__ == "__main__":
             time.sleep(totalCooldown - (end - start))
 
         os.system("cls")
-        print("Time taken: " + str(round(time.perf_counter()-start, 4)))
+        print("Gecen Zaman: " + str(round(time.perf_counter()-start, 4)))
 
 
         if proxiesEnabled:
@@ -302,4 +302,3 @@ if __name__ == "__main__":
             proxy = getProxy()
             session.proxies = {"http": proxy, "https": proxy}
         
-    
